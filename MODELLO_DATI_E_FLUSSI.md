@@ -1,6 +1,6 @@
 # Modello dei dati e flussi
 
-Versione 1.1 — 23 ottobre 2026. Modello logico proposto per guidare l'implementazione futura; include la ricerca conversazionale e non impone ancora uno stack o un fornitore AI.
+Versione 1.2 — 23 ottobre 2026. Modello logico proposto per guidare l'implementazione futura; include ricerca conversazionale, abbonamento e sponsorizzazione, senza imporre uno stack o fornitori.
 
 ## 1. Relazioni fondamentali
 
@@ -11,6 +11,10 @@ erDiagram
     PERSONA ||--o{ VERSIONE_CV : approva
     PERSONA ||--o{ SESSIONE_RICERCA : avvia
     SESSIONE_RICERCA ||--o{ RICHIESTA_RICERCA : formula
+    PERSONA ||--o{ ABBONAMENTO : sottoscrive
+    PIANO_UTENTE ||--o{ ABBONAMENTO : definisce
+    ABBONAMENTO ||--o{ EVENTO_PAGAMENTO : registra
+    ABBONAMENTO ||--o{ SPONSORIZZAZIONE : abilita
     PERSONA ||--o{ CANDIDATURA : invia
     VERSIONE_OFFERTA ||--o{ CANDIDATURA : riceve
     VERSIONE_CV ||--o{ CANDIDATURA : accompagna
@@ -39,6 +43,10 @@ Per il prototipo ogni rapporto nasce da una candidatura. In futuro un rapporto n
 | Racconto e sessione AI CV | Input dell'utente, chiarimenti, estrazioni e conferme per il CV; accesso ristretto e conservazione da definire |
 | Sessione di ricerca conversazionale | Dialogo e ricerca temporanea della persona, distinta dal CV; salvataggio e conservazione secondo scelta esplicita e politica definita |
 | Richiesta di ricerca | Sintesi, criteri validati, operatori AND/OR, unità, vincoli/preferenze, informazioni mancanti, provenienza e versione; sincronizzata con i filtri manuali |
+| Piano utente | Piano facoltativo di sponsorizzazione: 20 euro al mese, valuta EUR, versione del prezzo e condizioni |
+| Abbonamento | Persona, piano, periodo coperto, stato, rinnovo e riferimenti del fornitore; nessun dato completo di carta |
+| Evento pagamento | Identificativo univoco, importo/valuta, tipo, periodo, esito verificato e riferimenti per evitare duplicazioni |
+| Sponsorizzazione | Beneficio collegato al periodo valido, stato visibilità e perimetro autorizzato; nessuna modifica a competenze o rating |
 | Versione CV | Contenuto approvato, data, evidenze collegate, autorizzazioni e revisioni |
 | Competenza | Identificativo, descrizione, livello atteso/dichiarato, provenienza e stato dell'evidenza |
 | Evidenza | Documento/progetto/prova, autore e metodo della verifica; accesso minimo e nessuna verifica fittizia |
@@ -90,12 +98,18 @@ In attesa di conferma → attivo verificato → eleggibile a sei mesi → conclu
 
 La proposta iniziale misura sei mesi sullo stesso rapporto continuativo. Rinnovi senza interruzione e riassunzioni richiedono regole esplicite: non si sommano periodi arbitrariamente e non si azzera l'anzianità per una semplice riassegnazione alla stessa azienda.
 
+### Abbonamento e sponsorizzazione
+
+Piano selezionato → pagamento in attesa → conferma verificata → periodo attivo → rinnovo o scadenza. Disattivare il rinnovo e sospendere la visibilità sono azioni distinte. Lo stato del pagamento non deriva dalla sola interfaccia del browser. La sponsorizzazione è mostrabile soltanto se il beneficio è valido, il profilo è autorizzato e rispetta i criteri della ricerca; le regole di scadenza, pagamento fallito e rimborsi sono da consolidare prima della vendita reale.
+
 ## 4. Permessi e visibilità
 
 | Informazione/azione | Persona interessata | Azienda pertinente | Pubblico |
 |---|---|---|---|
 | Racconto libero e bozza CV | Legge/modifica | Nessun accesso predefinito | Nessuno |
 | Conversazione e richiesta di ricerca | Proprie, modificabili; salva espressamente le preferenze | Nessun accesso predefinito | Nessuno |
+| Abbonamento e pagamenti | Propri, con gestione rinnovo e visibilità | Nessun accesso allo storico economico | Nessuno |
+| Badge sponsorizzato | Vede il proprio stato | Vede il badge sul profilo autorizzato nei risultati pertinenti | Nessun nuovo accesso al CV derivante dal pagamento |
 | CV approvato | Controlla la condivisione | Solo nel perimetro autorizzato | Solo eventuali parti rese pubbliche dalla persona |
 | Preferenze riservate | Legge/modifica | Solo informazioni professionali autorizzate necessarie all'incontro | Nessuno |
 | Offerta pubblicata e crescita | Legge | Gestisce con autorizzazione | Legge |
@@ -125,6 +139,8 @@ Le autorizzazioni sono applicate sul server e sul singolo oggetto, non soltanto 
 
 Il cuore è calcolato da regole deterministiche sui dati autorizzati. Non serve un modello linguistico per riempirlo o attribuire like. La valutazione professionale è compilata dal referente umano, non dedotta dall'AI.
 
+Anche la sponsorizzazione segue regole applicative distinte dall'AI: si applicano prima autorizzazioni e criteri aziendali, poi gli spazi promozionali etichettati. Lo stato di pagamento non entra nella stima delle competenze, nel gap, nel cuore o nelle valutazioni. L'AI non attribuisce maggiore capacità professionale a un profilo pagante.
+
 I contenuti di CV, messaggi, documenti e offerte sono dati non attendibili come istruzioni: eventuali frasi che chiedono di cambiare regole o rivelare dati non devono essere eseguite dal modello. I servizi ricevono solo le informazioni necessarie e non possono interrogare liberamente dati di altre persone o aziende.
 
 La ricerca conversazionale restituisce criteri entro uno schema consentito; il modello non esegue query arbitrarie. Richieste e conversazioni di ricerca non aggiornano automaticamente CV o preferenze permanenti. Gli output dei questionari conservano la versione: non si mescolano automaticamente i precedenti 21/11 elementi con i nuovi 10/5.
@@ -150,6 +166,8 @@ La stessa versione di requisiti e profilo deve produrre risultati riproducibili 
 - Unicità candidature, like e contributi secondo le regole applicabili.
 - Conteggi aziendali pubblicati solo attraverso aggregati autorizzati.
 - Trigger temporali idempotenti: un richiamo o un job ripetuto non crea nuovi voti o questionari duplicati.
+- Eventi di pagamento verificati e idempotenti; un evento ripetuto non duplica abbonamenti o periodi di sponsorizzazione.
+- Scadenza del beneficio e permessi di visibilità controllati sul server anche per gli spazi sponsorizzati.
 - Date normalizzate, presentazione coerente con Europe/Rome, scadenze in mesi di calendario.
 - Separazione dati demo/produzione; nessun messaggio reale da simulazioni.
 - Modifiche e revoche propagate agli aggregati senza pubblicare variazioni individuali.

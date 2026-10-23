@@ -1,10 +1,10 @@
 # Pipeline completa di realizzazione
 
-Versione 1.1 — 23 ottobre 2026. Include questionari compatti e ricerca conversazionale AI.
+Versione 1.2 — 23 ottobre 2026. Include questionari compatti, ricerca conversazionale AI e piano utente di sponsorizzazione.
 
 ## 1. Percorso complessivo
 
-Definizione dei requisiti → regole e visibilità → modello dei dati → percorsi delle due interfacce → design → fondazioni applicative → CV e offerte → ricerca conversazionale, filtri e selezione → salari e formazione → feedback compatti e cuore → verifica del percorso completo → demo/pitch → preparazione del rilascio reale.
+Definizione dei requisiti → regole e visibilità → modello dei dati → percorsi delle due interfacce → design → fondazioni applicative → CV e offerte → ricerca conversazionale, filtri e selezione → salari e formazione → feedback compatti e cuore → piano utente e sponsorizzazione → verifica del percorso completo → demo/pitch → preparazione del rilascio reale.
 
 Si può costruire una demo completa senza fingere che fonti, verifiche o anonimato di produzione siano già risolti. Le funzioni richieste restano tutte nella pipeline; le dipendenze determinano l'ordine.
 
@@ -24,11 +24,14 @@ Si può costruire una demo completa senza fingere che fonti, verifiche o anonima
 | 9. Salari, gap e formazione | Integrare fonti curate, confronto competenze e catalogo | Benchmark orientativo e percorso di sviluppo | Nessun salario/corso inventato; dati insufficienti e gap restano distinti |
 | 10. Rapporto e feedback | Confermare ingresso, gestire scadenze, questionario di selezione a 10 domande e valutazione professionale a 5 voci | Tre strumenti separati con permessi e trigger corretti | Moduli compatti senza domande obbligatorie aggiuntive; tempi corretti e nessun dato individuale dei like esposto |
 | 11. Cuore | Calcolare aggregati coerenti, stati di copertura e visualizzazione | Cuore interattivo con spiegazione | Organico/like hanno perimetro coerente; dati assenti non diventano giudizio negativo |
+| 11A. Piano utente e sponsorizzazione | Progettare piano da 20 euro al mese, abbonamento, pagamento, rinnovo/scadenza e spazi sponsorizzati nei risultati aziendali | Maggiore visibilità facoltativa con badge, stato del piano e controlli lato candidato | Criteri e permessi rispettati, pagamento verificato, nessuna modifica di competenze o rating; in demo pagamento simulato dichiarato |
 | 12. Verifica integrata | Controllare funzioni, accessi, AI, date, formule e accessibilità | Demo affidabile con problemi significativi risolti | Percorsi e casi limite documentati superano le verifiche pertinenti |
 | 13. Pitch | Preparare una storia dimostrativa di almeno cinque minuti | Pitch con problema, destinatari, soluzione, demo, benefici e sviluppi | Ogni beneficio presentato è mostrato o dichiarato come ipotesi da validare |
 | 14. Rilascio reale | Risolvere punti aperti e integrare verifiche/fonti reali | Versione pronta per pubblicazione autorizzata | Privacy, autorizzazioni, moderazione, fonti, affidabilità e adempimenti pertinenti verificati |
 
 Le fasi 0–2 precedono la progettazione dettagliata. La fase 5 precede la raccolta di dati reali. Le funzioni dei feedback dipendono dagli stati della candidatura e del rapporto; il cuore dipende anche dalla verifica dell'organico e dalla politica di anonimato.
+
+Il piano da 20 euro al mese entra già nelle fasi di regole, dati e design; la fase 11A implementa la sponsorizzazione sulla ricerca aziendale della fase 8. Prima di un pagamento reale si definiscono fornitore, condizioni economiche complessive, rinnovo, disdetta e rimborsi. Questa pianificazione non attiva addebiti.
 
 L'uso della chiave API è rinviato come richiesto. Nella fase tecnica dedicata si verificheranno modello Gemini Pro disponibile all'account, quote, condizioni di gratuità/costi, dati inviati e gestione degli errori. Questa revisione documentale non configura credenziali né effettua chiamate AI; il prototipo può dichiarare una simulazione prima dell'integrazione.
 
@@ -45,6 +48,7 @@ L'uso della chiave API è rinviato come richiesto. Nella fase tecnica dedicata s
 7. Questionario sulla selezione con 10 domande, incluso spazio libero nella domanda sui miglioramenti.
 8. Rapporto confermato, confronto con le condizioni salvate e apprezzamento dopo sei mesi.
 9. Valutazione professionale ricevuta su 5 voci e possibilità di replica.
+10. Piano da 20 euro al mese con simulazione dichiarata di attivazione, gestione rinnovo/scadenza e visibilità sponsorizzata.
 
 ### Interfaccia azienda
 
@@ -56,6 +60,7 @@ L'uso della chiave API è rinviato come richiesto. Nella fase tecnica dedicata s
 6. Risultati di selezione e miglioramenti.
 7. Cuore aggregato e relativa metodologia.
 8. Valutazione del dipendente su 5 voci nelle quattro aree e formazione pertinente.
+9. Spazi chiaramente etichettati per candidati sponsorizzati pertinenti, senza variazione delle competenze o dei giudizi.
 
 Per mantenere la demo gestibile si parte da pochi ruoli, senza eliminare moduli dal percorso. Login, invii, verifica dei rapporti e fonti possono essere simulati quando dichiarato e isolato; il comportamento centrale deve essere dimostrabile. La tecnologia AI usata in demo, se simulata, è etichettata; non si presenta un testo statico come risposta generata realmente.
 
@@ -80,6 +85,9 @@ Per mantenere la demo gestibile si parte da pochi ruoli, senza eliminare moduli 
 | Microimpresa con contributo identificabile | Risultato trattenuto o aggregato secondo la politica scelta |
 | Organico sconosciuto, zero, obsoleto o inferiore ai like | Stato non valutabile, errore esplicito e nessun numero ingannevole |
 | Dipendente senza occasione di apprendere un nuovo strumento | Adattabilità non osservabile, nessun voto negativo automatico |
+| Piano candidato attivo da 20 euro al mese | Profilo pertinente più visibile nello spazio sponsorizzato con badge chiaro |
+| Profilo sponsorizzato nascosto, incompatibile o con piano scaduto | Nessuna esposizione fuori dai permessi, dai criteri o dal periodo valido |
+| Candidati paganti e standard nella stessa ricerca | Spazi sponsorizzati riconoscibili, risultati ordinari presenti e nessun aumento dei giudizi professionali |
 
 I numeri degli scenari sono sintetici; non sono statistiche sul mercato o recensioni reali.
 
@@ -134,6 +142,15 @@ I numeri degli scenari sono sintetici; non sono statistiche sul mercato o recens
 - Ritiro del like, uscita di un dipendente e aggiornamento dell'organico rispettano la politica di aggregazione.
 - Il dettaglio del cuore non rivela indirettamente ciò che il componente principale nasconde.
 
+### Piano utente e sponsorizzazione
+
+- Prezzo di progetto 20 euro al mese e condizioni visibili prima dell'acquisto.
+- Attivazione soltanto dopo conferma verificata del pagamento; eventi ripetuti non duplicano il beneficio.
+- Rinnovo disattivato, periodo ancora valido, scadenza e sospensione della visibilità hanno effetti distinti.
+- Il badge identifica la maggiore esposizione come sponsorizzata; filtri e permessi rimangono applicati.
+- I profili standard restano visibili e lo stato a pagamento non altera competenze, gap o rating.
+- Il prototipo dichiara i pagamenti simulati; errori di pagamento non bloccano la ricerca e la candidatura standard.
+
 ### Esperienza d'uso
 
 - Entrambe le interfacce funzionano da mobile e da tastiera.
@@ -156,6 +173,7 @@ Non sono risultati già ottenuti:
 - utilizzo di risorse formative pertinenti e successiva conferma di competenze;
 - copertura dei feedback e del cuore, senza trasformare mancata partecipazione in insoddisfazione;
 - capacità del lavoratore di riconoscere differenze tra promesse e condizioni successive.
+- esposizione e contatti dei profili sponsorizzati realmente misurati, mantenendo distinta la visibilità aggiuntiva dalla qualità professionale e dall'esito delle candidature.
 
 Il cuore a like unico non misura separatamente tutti gli aspetti del rispetto delle promesse. La demo deve presentare questa limitazione, senza attribuirgli una diagnosi che non raccoglie.
 
@@ -183,6 +201,7 @@ Il cuore a like unico non misura separatamente tutti gli aspetti del rispetto de
 | R24 | Specifica §5/§8/§9; questionari §4 | Tutte | Etichette corrette per dati ed evidenze |
 | R25 | Specifica §5.5/§7; ricerca conversazionale §2–§6; modello §3/§5 | 3–5, 8, 12 | Richiesta informale → criteri validati → filtri visibili → risultati modificabili |
 | R26 | Specifica §12.1; ricerca conversazionale §7; registro P20 | 5, successiva integrazione AI | Valutazione Gemini Pro e configurazione API documentate nella fase dedicata, senza chiavi nel repository |
+| R27 | Specifica §7.1; piano utente §1–§7; modello §2–§5 | 1, 3–5, 8, 11A–12 | Piano facoltativo da 20 euro/mese, maggiore esposizione etichettata e coerente con filtri/permessi; gestione del periodo e nessuna alterazione dei rating |
 
 ## 8. Prima attività dopo la revisione di questa pipeline
 

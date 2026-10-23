@@ -1,6 +1,6 @@
 # Specifica del prodotto
 
-Versione 1.1 — 23 ottobre 2026. Fonte: descrizione dell'utente e successiva revisione su questionari e ricerca conversazionale AI, nel contesto del brief FAN Innovation.
+Versione 1.2 — 23 ottobre 2026. Fonte: descrizione dell'utente e revisioni su questionari, ricerca conversazionale AI e piano di sponsorizzazione, nel contesto del brief FAN Innovation.
 
 ## 1. Obiettivo
 
@@ -63,6 +63,7 @@ Questo permette di gestire candidature non riuscite, più candidati per offerta,
 | R24 | Distinguere dati dichiarati, verificati, stimati e insufficienti | Conseguenza operativa della trasparenza |
 | R25 | Chatbot informale che formula la richiesta di ricerca e applica filtri espliciti alle offerte/aziende, modificabili dalla persona | Utente |
 | R26 | Definire successivamente integrazione API e modello AI, valutando Gemini Pro e la chiave disponibile all'utente | Utente |
+| R27 | Piano facoltativo candidato/lavoratore da 20 euro al mese per sponsorizzare il profilo e aumentarne la visibilità presso le aziende | Utente |
 
 ## 5. Percorso del candidato e costruzione del CV
 
@@ -149,6 +150,12 @@ I filtri selezionati esplicitamente dalla persona, anche espressi in linguaggio 
 
 La candidatura conserva la versione del CV condivisa e dell'offerta accettata come base del processo. Messaggi, appuntamenti, esiti e cambiamenti rilevanti hanno una cronologia accessibile alle parti. Un'offerta modificata non riscrive le promesse precedenti; le variazioni vengono evidenziate prima dell'accettazione.
 
+### 7.1 Piano utente e visibilità sponsorizzata
+
+È previsto un piano facoltativo da **20 euro al mese** per sponsorizzare il profilo candidato/lavoratore e renderlo più visibile alle aziende. Proposta: spazi dedicati e riconoscibili nei risultati di ricerca aziendali, con badge «Sponsorizzato», applicando prima i criteri della ricerca e i permessi del profilo.
+
+Il pagamento aumenta l'esposizione, senza modificare competenze, evidenze, gap, feedback o rating. Non garantisce colloqui o assunzioni e non amplia automaticamente i dati condivisi. La pianificazione comprende pagina del piano, pagamento, stato dell'abbonamento, rinnovo/disattivazione e scadenza; regole esatte e fornitore saranno definiti nella fase dedicata. Il prototipo usa una simulazione dichiarata dei pagamenti. Dettaglio in [Piano utente e sponsorizzazione](PIANO_UTENTE_E_SPONSORIZZAZIONE.md).
+
 ## 8. Retribuzione orientativa AI
 
 Per ciascuna posizione la piattaforma presenta, quando dispone di dati sufficienti, una fascia o un valore centrale accompagnato da intervallo orientativo. Specifica lordo, unità, orario, ruolo/livello, territorio, settore, data delle fonti e ampiezza/copertura dei dati quando disponibile.
@@ -206,6 +213,7 @@ Il questionario di selezione contiene 10 domande complessive, incluso il miglior
 - questionario di selezione;
 - rapporto lavorativo, promesse salvate e like eleggibile;
 - valutazioni ricevute dall'azienda, replica/rettifica e obiettivi di sviluppo.
+- piano facoltativo da 20 euro al mese, gestione dell'abbonamento e controllo della visibilità sponsorizzata.
 
 ### Azienda
 
@@ -219,6 +227,7 @@ Il questionario di selezione contiene 10 domande complessive, incluso il miglior
 - risultati aggregati della selezione e suggerimenti di miglioramento;
 - visualizzazione del cuore e della sua copertura senza identità dei votanti;
 - valutazione professionale del dipendente e proposte formative.
+- risultati di ricerca con profili sponsorizzati chiaramente indicati, pertinenti ai criteri selezionati e separati dalla valutazione professionale.
 
 ### Funzioni di gestione interna
 

@@ -1,10 +1,10 @@
 # Decisioni, ipotesi e fonti
 
-Versione 1.1 — 23 ottobre 2026. Revisione su moduli sintetici e ricerca conversazionale AI.
+Versione 1.2 — 23 ottobre 2026. Include moduli sintetici, ricerca conversazionale AI e piano di sponsorizzazione utente.
 
 ## 1. Gerarchia delle fonti del progetto
 
-1. Descrizione dell'utente e successiva richiesta di ridurre i questionari e introdurre il chatbot di ricerca: definizione funzionale corrente.
+1. Descrizione dell'utente e successive revisioni su questionari, chatbot di ricerca e piano da 20 euro al mese: definizione funzionale corrente.
 2. Brief nelle due fotografie: destinatari, obiettivo territoriale, prototipo dimostrabile, pitch e limiti delle raccomandazioni AI.
 3. Conversazione precedente: motivazione, tutela del lavoratore e ipotesi sul peso delle condizioni offerte.
 4. Proposte operative dell'assistente: rendono implementabili i requisiti, ma devono restare riconoscibili come proposte.
@@ -30,6 +30,7 @@ Versione 1.1 — 23 ottobre 2026. Revisione su moduli sintetici e ricerca conver
 - Il questionario sulla selezione viene ridotto a 10 domande che coprono tutti i punti principali; anche le voci della valutazione aziendale vengono ridotte.
 - Un chatbot permette alla persona di descrivere informalmente l'azienda e il lavoro desiderati, formula la richiesta e filtra la ricerca.
 - La definizione dell'integrazione API è rinviata. L'utente indica Gemini Pro come opzione da valutare e riferisce di avere una chiave API gratuita; modello preciso, disponibilità, quote e condizioni economiche non sono ancora verificati.
+- Prevedere un piano facoltativo dal lato candidato/lavoratore da 20 euro al mese che sponsorizzi il profilo per renderlo più visibile alle aziende.
 
 La richiesta precedente di sospendere i feedback è superata dall'ultima descrizione, che li reintroduce con un meccanismo preciso. I like sulle recensioni o le conferme «esperienza simile» discusse in precedenza non vengono aggiunti automaticamente al nuovo cuore: qui il like riguarda direttamente l'apprezzamento del datore di lavoro.
 
@@ -58,6 +59,9 @@ La richiesta precedente di sospendere i feedback è superata dall'ultima descriz
 | P19 | Questionari compatti | Selezione: 10 domande, con spazio libero integrato in S10; dipendente: 5 voci su 4 aree, due dedicate all'adattamento | Dieci domande e riduzione richieste dall'utente; scelta operativa delle cinque voci e formulazioni documentata nella versione 1.1 |
 | P20 | Modello e chiave AI | Valutare successivamente Gemini Pro e la chiave disponibile all'utente; configurazione server riservata | Rinvio esplicito dell'utente; nessuna chiave richiesta/configurata, nessuna gratuità illimitata presunta |
 | P21 | Ricerca conversazionale | Richiesta informale tradotta in filtri espliciti e correggibili; chiarimenti solo sulle ambiguità rilevanti | Funzione richiesta dall'utente; flusso operativo nel documento dedicato, senza modifica automatica del CV |
+| P22 | Piano candidato | 20 euro al mese per sponsorizzare il profilo presso le aziende | Prezzo e beneficio richiesti dall'utente; pianificazione, senza attivazione di pagamenti reali |
+| P23 | Posizionamento sponsorizzato | Spazi dedicati con badge nei risultati aziendali, dopo filtri e permessi, con rotazione da definire | Proposta operativa; numero degli spazi, frequenza e misure di esposizione ancora da scegliere |
+| P24 | Pagamento e abbonamento | Stato verificato sul server; rinnovo disattivabile, periodo già pagato mantenuto come proposta; demo simulata | Fornitore, condizioni fiscali/commerciali, rinnovo, rimborsi e gestione degli insoluti da consolidare prima della vendita reale |
 
 ## 4. Compromessi da spiegare nel prodotto
 
@@ -80,6 +84,10 @@ Il giudizio dell'azienda può incidere sulle opportunità future del lavoratore.
 ### Una stima salariale approssimativa resta trasparente
 
 La presentazione può usare intervalli e spiegazioni, ma non manipolare l'incertezza per scoraggiare il confronto. Il benchmark è distinto dalle condizioni offerte e dai riferimenti contrattuali. La persona può comunque decidere che una proposta non sia adeguata alle proprie esigenze.
+
+### La sponsorizzazione acquista esposizione
+
+Il piano a pagamento introduce maggiore visibilità riconoscibile come tale. Non modifica le evidenze di competenza né i giudizi e non garantisce assunzione. Le scelte di condivisione rimangono valide anche per un profilo pagante. Per mantenere coerente la priorità alla tutela del lavoratore, si propone un percorso standard accessibile senza boost e spazi ordinari ancora visibili. Numero di posti sponsorizzati e rotazione devono essere espliciti prima del rilascio.
 
 ## 5. Fonti consultate per questa organizzazione
 
@@ -105,6 +113,14 @@ Eurostat distingue unità e coperture delle statistiche retributive e descrive s
 Le statistiche sul reperimento non dimostrano da sole che la causa principale sia la retribuzione o la precarietà. Il progetto rende questi aspetti espliciti e permette di raccogliere riscontri, evitando di presentare un'ipotesi come un fatto già misurato.
 
 ## 6. Storico delle revisioni
+
+### Versione 1.2 — 23 ottobre 2026
+
+- Aggiunto R27: piano facoltativo candidato/lavoratore da 20 euro al mese per aumentare la visibilità presso le aziende.
+- Pianificati pagina del piano, abbonamento, periodo, pagamento, rinnovo e scadenza.
+- Proposti spazi sponsorizzati etichettati nei risultati aziendali, applicando prima pertinenza e autorizzazioni.
+- Aggiornati dati, permessi, interfacce, verifiche e matrice dei requisiti; aggiunto il documento dedicato al piano.
+- Nessuna attivazione di addebiti reali o scelta del fornitore in questa revisione.
 
 ### Versione 1.1 — 23 ottobre 2026
 

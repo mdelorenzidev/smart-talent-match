@@ -10,6 +10,7 @@ Il repository contiene la definizione del prodotto e la pipeline per la successi
 - [Specifica del prodotto](SPECIFICA_PRODOTTO.md)
 - [Questionari, valutazioni e cuore aziendale](QUESTIONARI_E_RATING.md)
 - [Chatbot e ricerca conversazionale AI](RICERCA_CONVERSAZIONALE_AI.md)
+- [Piano utente da 20 euro al mese e sponsorizzazione](PIANO_UTENTE_E_SPONSORIZZAZIONE.md)
 - [Modello dei dati e flussi](MODELLO_DATI_E_FLUSSI.md)
 - [Pipeline di realizzazione](PIPELINE_REALIZZAZIONE.md)
 - [Decisioni e fonti](DECISIONI_E_FONTI.md)
@@ -23,8 +24,11 @@ Il repository contiene la definizione del prodotto e la pipeline per la successi
 - Chatbot informale che formula la richiesta e applica filtri visibili e modificabili.
 - Feedback sulla selezione distinto dagli apprezzamenti anonimi dopo l'inserimento.
 - Moduli compatti: 10 domande sulla selezione e 5 voci nella valutazione professionale.
+- Piano facoltativo candidato da 20 euro al mese per maggiore visibilità sponsorizzata presso le aziende, distinta da competenze e rating.
 - Raccomandazioni comprensibili e nessuna esclusione automatica decisa dall'AI.
 
 Le proposte ancora da confermare sono indicate nei documenti; non sono presentate come decisioni definitive.
 
 L'integrazione API AI verrà definita successivamente, valutando Gemini Pro e la chiave disponibile all'utente. Nessuna chiave o integrazione attiva è inclusa nel repository.
+
+Anche il piano di sponsorizzazione è al momento pianificato: pagamenti e rinnovi reali non sono ancora attivi.

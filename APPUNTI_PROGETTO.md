@@ -6,6 +6,8 @@ Aggiornamento: 23 ottobre 2026.
 
 > Revisione 1.1: selezione a 10 domande, valutazione professionale a 5 voci e introduzione della [ricerca conversazionale AI](RICERCA_CONVERSAZIONALE_AI.md). L'uso della chiave API e la valutazione di Gemini Pro sono rinviati come richiesto.
 
+> Revisione 1.2: aggiunto alla pianificazione il [piano candidato da 20 euro al mese](PIANO_UTENTE_E_SPONSORIZZAZIONE.md) per sponsorizzare il profilo presso le aziende. Pagamenti e maggiore esposizione saranno implementati nelle fasi successive.
+
 ## Obiettivo e priorità condivise
 
 - Facilitare l'incontro tra PMI campane e lavoratori, mantenendo come priorità la tutela del lavoratore.
