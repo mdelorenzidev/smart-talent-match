@@ -1,6 +1,13 @@
-import { cpSync, mkdirSync } from 'node:fs';
+import {readFileSync,writeFileSync,mkdirSync,readdirSync,rmSync,cpSync} from 'node:fs';
 import path from 'node:path';
-const root=process.cwd();
-mkdirSync(path.join(root,'dist'),{recursive:true});
-cpSync(path.join(root,'mesh'),path.join(root,'dist'),{recursive:true});
-console.log('MESH: static assets prepared in dist/');
+const root=process.cwd(),dist=path.resolve(root,'dist');
+if(path.dirname(dist)!==root||path.basename(dist)!=='dist')throw new Error('Output non valido');
+rmSync(dist,{recursive:true,force:true});mkdirSync(path.join(dist,'server'),{recursive:true});mkdirSync(path.join(dist,'.openai'),{recursive:true});
+const assets={};for(const name of readdirSync(path.join(root,'mesh')))assets['/'+name]=readFileSync(path.join(root,'mesh',name),'utf8');
+const modules=['mesh/data.js','server/database.mjs','server/gemini.mjs','server/api.mjs'];
+const strip=source=>source.replace(/^import .*?;\r?\n/gm,'').replace(/^export (?=(?:const|let|function|async function)\b)/gm,'');
+let bundle=modules.map(file=>strip(readFileSync(path.join(root,file),'utf8'))).join('\n');
+bundle+='\nconst assets='+JSON.stringify(assets)+';\n'+readFileSync(path.join(root,'worker/index.mjs'),'utf8').replace(/^import .*?;\r?\n/gm,'');
+writeFileSync(path.join(dist,'server/index.js'),bundle);
+cpSync(path.join(root,'.openai/hosting.json'),path.join(dist,'.openai/hosting.json'));
+console.log('MESH: Worker API, database bindings and embedded assets prepared');

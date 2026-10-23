@@ -18,3 +18,8 @@ outputs/
 .sites-runtime/
 .sites-checkout/
 .wrangler/
+.mesh-data/
+.dev.vars*
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

@@ -2,7 +2,7 @@
 
 Progetto per favorire l'incontro tra lavoratori e PMI campane, con trasparenza delle condizioni, valorizzazione delle competenze e tutela del lavoratore.
 
-Il repository contiene la documentazione del progetto e una prima webapp navigabile MESH, con percorsi candidato e azienda e un archivio fittizio persistente nel browser. Gemini, autenticazione e pagamenti reali saranno collegati nelle fasi successive.
+Il repository contiene la documentazione del progetto e una prima webapp navigabile MESH, con percorsi candidato e azienda, database demo persistente SQLite/D1 e collegamento server a Gemini predisposto. Autenticazione e pagamenti applicativi restano simulati; Gemini si attiva configurando la propria chiave.
 
 ## Prova la webapp
 
@@ -10,11 +10,13 @@ Il repository contiene la documentazione del progetto e una prima webapp navigab
 node scripts/serve-mesh.mjs
 ```
 
-Apri `http://127.0.0.1:4173`. Sorgenti in `mesh/`; [organizzazione dell'interfaccia, stato e limiti della demo](MESH_INTERFACCIA.md).
+Richiede Node.js 24. Apri `http://127.0.0.1:4173` senza registrazione. Il database viene creato automaticamente in `.mesh-data/`. Sorgenti in `mesh/`; [organizzazione dell'interfaccia, stato e limiti della demo](MESH_INTERFACCIA.md).
 
 ## Documentazione
 
-- [MESH: identità e prima interfaccia](MESH_INTERFACCIA.md)
+- [MESH: identità e interfaccia](MESH_INTERFACCIA.md)
+- [Database demo, struttura e sessioni](DATABASE_DEMO.md)
+- [Configurazione Gemini: chiave, modello e test](GEMINI_SETUP.md)
 
 - [Guida alla documentazione e stato delle decisioni](README_PROGETTO.md)
 - [Specifica del prodotto](SPECIFICA_PRODOTTO.md)
@@ -39,6 +41,6 @@ Apri `http://127.0.0.1:4173`. Sorgenti in `mesh/`; [organizzazione dell'interfac
 
 Le proposte ancora da confermare sono indicate nei documenti; non sono presentate come decisioni definitive.
 
-L'integrazione API AI verrà definita successivamente, valutando Gemini Pro e la chiave disponibile all'utente. Nessuna chiave o integrazione attiva è inclusa nel repository.
+Il collegamento REST Gemini è implementato per ricerca e CV; senza chiave funziona come assistente demo. La configurazione è descritta in `GEMINI_SETUP.md`. Nessuna chiave è inclusa nel repository e non è stata effettuata una prova live con Google.
 
 Anche il piano di sponsorizzazione è al momento pianificato: pagamenti e rinnovi reali non sono ancora attivi.

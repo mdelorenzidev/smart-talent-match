@@ -70,7 +70,7 @@ Se il servizio AI non risponde, restano disponibili i filtri manuali e l'ultima 
 
 ## 7. Modello e chiave API: scelta successiva
 
-Gemini Pro è l'opzione indicata dall'utente, che riferisce di avere una chiave API gratuita. La scelta del modello preciso, la verifica delle condizioni del relativo account e l'integrazione API sono rinviate alla fase dedicata. Nessuna disponibilità o gratuità illimitata viene presunta.
+L’utente ha indicato Gemini e una propria chiave API. Il collegamento server è ora implementato per ricerca e CV con modello configurabile; vedere [Configurazione Gemini](GEMINI_SETUP.md). In assenza di chiave funziona una simulazione dichiarata. Quota, modello e condizioni effettive dell’account devono essere verificati: Pro gratuito non è presunto.
 
 In quella fase definiremo identificativo del modello, capacità richieste, limiti, quote, costo effettivo, dati inviati al fornitore, gestione degli errori e modalità di configurazione. La chiave deve rimanere nella configurazione server riservata, esclusa dal repository e dal codice consegnato al browser. Questa revisione non configura credenziali e non effettua chiamate AI.
 

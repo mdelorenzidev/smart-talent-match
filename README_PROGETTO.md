@@ -4,11 +4,11 @@ Versione 1.2 — 23 ottobre 2026.
 
 ## Scopo
 
-Questa documentazione traduce la definizione dell'utente in requisiti e in una pipeline per la webapp. La prima implementazione navigabile si chiama **MESH** ed è descritta in [MESH: interfaccia e stato della demo](MESH_INTERFACCIA.md); il codice è in `mesh/`. L'archivio locale, i ruoli e gli assistenti sono dimostrativi; le integrazioni di produzione restano da realizzare.
+Questa documentazione traduce la definizione dell'utente in requisiti e in una pipeline per la webapp. La prima implementazione navigabile si chiama **MESH** ed è descritta in [MESH: interfaccia e stato della demo](MESH_INTERFACCIA.md); il codice è in `mesh/`. Il database demo usa SQLite in locale e D1 online; i ruoli restano simulati e Gemini è predisposto lato server. Per attivarlo consultare [la guida Gemini](GEMINI_SETUP.md).
 
 Il principio guida è la trasparenza reciproca, con priorità alla tutela del lavoratore. Le aziende ricevono profili ricchi e competenze accompagnate da evidenze; i candidati conoscono condizioni, prospettive di crescita e svolgimento della selezione. Dopo l'inserimento, il sistema raccoglie apprezzamenti anonimi sull'esperienza aziendale e valutazioni professionali dell'impresa sul dipendente.
 
-La revisione corrente contiene 27 requisiti: il questionario di selezione ha 10 domande e la valutazione professionale 5 voci su 4 aree. Il chatbot traduce le preferenze informali dell'utente in richieste strutturate e filtri modificabili. È inoltre pianificato un piano facoltativo candidato/lavoratore da 20 euro al mese per sponsorizzare il profilo presso le aziende, con maggiore esposizione chiaramente etichettata. La scelta del modello e l'uso della chiave API restano alla fase successiva, valutando Gemini Pro come indicato dall'utente.
+La revisione corrente contiene 27 requisiti: il questionario di selezione ha 10 domande e la valutazione professionale 5 voci su 4 aree. Il chatbot traduce le preferenze informali dell'utente in richieste strutturate e filtri modificabili. È inoltre pianificato un piano facoltativo candidato/lavoratore da 20 euro al mese per sponsorizzare il profilo presso le aziende, con maggiore esposizione chiaramente etichettata. Il modello Gemini è ora configurabile lato server; chiave e quota effettive devono essere abilitate dall’utente. La disponibilità gratuita di Pro non è presunta.
 
 ## Ordine di lettura
 

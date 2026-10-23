@@ -6,9 +6,11 @@
 
 Il nome del prodotto è MESH: una rete diretta tra talento e impresa. Smart Talent Match rimane il riferimento alla challenge originaria.
 
-L'organizzazione riprende i riferimenti Wellfound forniti dall'utente: ingressi distinti per aziende e candidati, barra superiore fissa nella home, due riquadri di ingresso, marchi aziendali in scorrimento continuo, navigazione laterale nelle aree applicative. Il codice, i marchi dimostrativi, i testi e la palette sono originali.
+L'organizzazione riprende i riferimenti Wellfound forniti dall'utente: ingressi distinti per aziende e candidati, barra superiore fissa nella home, due riquadri di ingresso, marchi aziendali in scorrimento continuo, navigazione laterale nelle aree applicative. Il codice, i testi, le iniziali grafiche e la palette sono originali. I nomi di sei aziende note sono usati in scenari esplicitamente simulati e senza affiliazione.
 
-Palette: avorio `#f6f5ed`, petrolio `#183e38`, lime `#d5ed85`, salvia e superfici chiare. Tipografia: Space Grotesk per i titoli, DM Sans per il testo e Instrument Serif per gli accenti corsivi, con caratteri di riserva. Le animazioni rispettano la preferenza di movimento ridotto.
+Palette home e candidati: avorio `#f6f5ed`, petrolio `#183e38`, lime `#d5ed85`, salvia e superfici chiare. Tipografia: Space Grotesk per i titoli, DM Sans per il testo e Instrument Serif per gli accenti corsivi, con caratteri di riserva. Le animazioni rispettano la preferenza di movimento ridotto.
+
+L’area aziende ha un tema dedicato: navy `#162b49`, platino `#f3f5f8`, oro tenue `#e2c994`, fondo bianco e testo scuro. Il tema è circoscritto al workspace aziendale e ai suoi modali.
 
 ## Organizzazione del candidato
 
@@ -21,17 +23,17 @@ Palette: avorio `#f6f5ed`, petrolio `#183e38`, lime `#d5ed85`, salvia e superfic
 
 ## Organizzazione aziendale
 
-Panoramica, Offerte, Talenti, Selezioni, Messaggi e Azienda. Il workspace dimostrativo rappresenta radice studio: permette di pubblicare un'offerta con condizioni e crescita, leggere i profili, aggiornare una selezione, proporre un incontro, comunicare e compilare una valutazione professionale a 5 voci. I profili sponsorizzati sono etichettati in uno spazio distinto.
+Panoramica, Offerte, Talenti, Selezioni, Messaggi e Azienda. Il workspace dimostrativo usa il nome Accenture, senza affiliazione: permette di pubblicare un'offerta con condizioni e crescita, leggere i profili, aggiornare una selezione, proporre un incontro, comunicare e compilare una valutazione professionale a 5 voci. I profili sponsorizzati sono etichettati in uno spazio distinto.
 
 ## Implementazione e dati
 
-La prima versione usa moduli JavaScript nativi e CSS, senza un processo di installazione di dipendenze. L'archivio iniziale è in `mesh/data.js`: sei aziende, otto offerte, quattro profili e una conversazione. Le modifiche sono conservate in `localStorage` di questo browser/origine. Non è un database condiviso tra dispositivi o persone.
+Moduli JavaScript nativi e CSS, server Node.js 24 in locale, Worker ESM online. Il seed in `mesh/data.js` inizializza sei aziende con nome reale, otto offerte simulate, quattro profili e una conversazione. SQLite/D1 conserva catalogo e snapshot delle sessioni; il browser mantiene solo una cache di recupero. Dettagli in [Database demo](DATABASE_DEMO.md).
 
-La modalità candidato/azienda è una simulazione di ruoli e non implementa autenticazione o isolamento server. Tutti i dati iniziali sono fittizi, incluse retribuzioni, conteggi, organico e apprezzamenti.
+Candidato/azienda sono viste di uno scenario demo, senza autenticazione applicativa. Il server separa gli archivi per sessione anonima tramite cookie casuale. Retribuzioni, ruoli, località degli annunci, conteggi, organico e apprezzamenti sono fittizi; i nomi aziendali sono reali. La distinzione compare nel banner e nelle offerte.
 
-La ricerca conversazionale utilizza regole dimostrative dichiarate. Il CV propone una riformulazione locale limitata e una bozza modificabile: Gemini non è collegato e non si tratta di generazione AI reale. L'API sarà introdotta attraverso il server come definito nelle specifiche; nessuna chiave deve essere inserita nel frontend.
+Ricerca conversazionale e bozza CV usano endpoint server che chiamano Gemini quando configurato. Senza chiave utilizzano regole dimostrative dichiarate. Le risposte sono validate, i filtri restano modificabili e il CV richiede conferma. Nessuna chiave nel frontend: vedere [Configurazione Gemini](GEMINI_SETUP.md). Non è ancora stato eseguito un test live con una chiave reale.
 
-Il cuore usa il rapporto demo like/dipendenti e mostra il contesto. Le soglie temporali e l'anonimato di produzione non sono implementati: sei mesi e voti sono simulati esplicitamente. Autenticazione, database condiviso, verifica dell'organico, anonimizzazione, fonti salariali, catalogo formativo e pagamenti reali rimangono nelle fasi successive.
+Il cuore usa il rapporto demo like/dipendenti e mostra il contesto. Le soglie temporali e l'anonimato di produzione non sono implementati: sei mesi e voti sono simulati esplicitamente. Autenticazione applicativa, condivisione tra account, verifica dell'organico, anonimizzazione, fonti salariali, catalogo formativo e pagamenti reali rimangono nelle fasi successive.
 
 ## Avvio locale e pubblicazione
 
@@ -47,11 +49,12 @@ Aprire `http://127.0.0.1:4173`. Per preparare i file pubblicabili:
 node scripts/prepare-mesh.mjs
 ```
 
-I sorgenti sono in `mesh/`; `dist/` contiene la copia statica generata ed è esclusa da Git. Il manifest `.openai/hosting.json` collega il progetto alla pubblicazione privata Sites. GitHub conserva sorgenti e documentazione.
+I sorgenti frontend sono in `mesh/`, il backend in `server/` e il punto d’ingresso ospitato in `worker/`. `dist/` contiene il Worker generato con asset incorporati ed è escluso da Git. Il manifest `.openai/hosting.json` collega il progetto alla pubblicazione privata Sites. GitHub conserva sorgenti e documentazione.
 
 ## Controlli effettuati
 
-- Sintassi dei moduli e preparazione della copia statica.
+- Sintassi dei moduli e preparazione/validazione del Worker.
+- Dodici test API: SQLite persistente, isolamento sessioni, conflitti, rifiuto richieste malformate, filtri AI, gestione quota e bozza CV.
 - Controllo visivo della home e delle due aree.
 - Ricerca demo per design a Salerno e corrispondenza dei filtri.
 - Racconto → bozza CV → conferma e salvataggio.
