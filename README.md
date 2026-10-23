@@ -1,10 +1,20 @@
-# Smart Talent Match
+# MESH — Smart Talent Match
 
 Progetto per favorire l'incontro tra lavoratori e PMI campane, con trasparenza delle condizioni, valorizzazione delle competenze e tutela del lavoratore.
 
-Il repository contiene la definizione del prodotto e la pipeline per la successiva realizzazione della webapp. Design e codice applicativo non sono ancora presenti.
+Il repository contiene la documentazione del progetto e una prima webapp navigabile MESH, con percorsi candidato e azienda e un archivio fittizio persistente nel browser. Gemini, autenticazione e pagamenti reali saranno collegati nelle fasi successive.
+
+## Prova la webapp
+
+```text
+node scripts/serve-mesh.mjs
+```
+
+Apri `http://127.0.0.1:4173`. Sorgenti in `mesh/`; [organizzazione dell'interfaccia, stato e limiti della demo](MESH_INTERFACCIA.md).
 
 ## Documentazione
+
+- [MESH: identità e prima interfaccia](MESH_INTERFACCIA.md)
 
 - [Guida alla documentazione e stato delle decisioni](README_PROGETTO.md)
 - [Specifica del prodotto](SPECIFICA_PRODOTTO.md)

@@ -12,3 +12,9 @@ coverage/
 # File del sistema operativo
 .DS_Store
 Thumbs.db
+
+# Anteprime e strumenti Sites
+outputs/
+.sites-runtime/
+.sites-checkout/
+.wrangler/

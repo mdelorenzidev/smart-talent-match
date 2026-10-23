@@ -4,7 +4,7 @@ Versione 1.2 — 23 ottobre 2026.
 
 ## Scopo
 
-Questa documentazione traduce l'ultima definizione dell'utente in requisiti e in una pipeline per progettare e realizzare successivamente la webapp. Non contiene ancora design definitivo o codice applicativo.
+Questa documentazione traduce la definizione dell'utente in requisiti e in una pipeline per la webapp. La prima implementazione navigabile si chiama **MESH** ed è descritta in [MESH: interfaccia e stato della demo](MESH_INTERFACCIA.md); il codice è in `mesh/`. L'archivio locale, i ruoli e gli assistenti sono dimostrativi; le integrazioni di produzione restano da realizzare.
 
 Il principio guida è la trasparenza reciproca, con priorità alla tutela del lavoratore. Le aziende ricevono profili ricchi e competenze accompagnate da evidenze; i candidati conoscono condizioni, prospettive di crescita e svolgimento della selezione. Dopo l'inserimento, il sistema raccoglie apprezzamenti anonimi sull'esperienza aziendale e valutazioni professionali dell'impresa sul dipendente.
 
