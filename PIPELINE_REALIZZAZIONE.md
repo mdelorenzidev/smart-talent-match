@@ -1,10 +1,10 @@
 # Pipeline completa di realizzazione
 
-Versione 1.0 — 23 ottobre 2026.
+Versione 1.1 — 23 ottobre 2026. Include questionari compatti e ricerca conversazionale AI.
 
 ## 1. Percorso complessivo
 
-Definizione dei requisiti → regole e visibilità → modello dei dati → percorsi delle due interfacce → design → fondazioni applicative → CV e offerte → ricerca e selezione → salari e formazione → feedback e cuore → verifica del percorso completo → demo/pitch → preparazione del rilascio reale.
+Definizione dei requisiti → regole e visibilità → modello dei dati → percorsi delle due interfacce → design → fondazioni applicative → CV e offerte → ricerca conversazionale, filtri e selezione → salari e formazione → feedback compatti e cuore → verifica del percorso completo → demo/pitch → preparazione del rilascio reale.
 
 Si può costruire una demo completa senza fingere che fonti, verifiche o anonimato di produzione siano già risolti. Le funzioni richieste restano tutte nella pipeline; le dipendenze determinano l'ordine.
 
@@ -17,12 +17,12 @@ Si può costruire una demo completa senza fingere che fonti, verifiche o anonima
 | 2. Casi dimostrativi | Preparare aziende, offerte, racconti, rapporti e fonti sintetiche/curate | Dataset dimostrativo con casi ordinari e difficili | Tutte le funzioni possono essere mostrate senza dati personali reali |
 | 3. Flussi e contenuti | Disegnare sequenze candidato/azienda, navigazione e stati | Mappa schermate, testi, percorsi e permessi | Si percorre da racconto e offerta fino a ingresso e feedback |
 | 4. Design | Definire layout, componenti e comportamento accessibile | Prototipo navigabile delle due interfacce | Condizioni, crescita, evidenze e limiti delle stime sono leggibili anche da mobile |
-| 5. Fondazioni tecniche | Scegliere stack, autenticazione, dati, ruoli, versioni e autorizzazioni | Struttura applicativa con isolamento delle due parti e ambiente demo | Nessuna azienda vede dati di altre aziende; la persona controlla il proprio profilo |
+| 5. Fondazioni tecniche | Scegliere stack, autenticazione, dati, ruoli, versioni e autorizzazioni; definire successivamente l'integrazione API AI valutando Gemini Pro | Struttura applicativa con isolamento delle due parti e ambiente demo; configurazione AI server riservata | Nessuna azienda vede dati di altre aziende; la persona controlla il proprio profilo; nessuna chiave nel repository o nel browser |
 | 6. CV AI | Implementare racconto, chiarimenti, estrazione, revisione, evidenze ed export | CV completo approvato dalla persona | L'AI non inventa esperienze; le bozze non vengono condivise senza approvazione |
 | 7. Offerta e crescita | Implementare profilo azienda, organico, offerta guidata e tappe future | Offerta trasparente e versionata | Sono distinguibili condizioni attuali, opportunità future e loro condizioni |
-| 8. Ricerca e selezione | Implementare filtri reciproci, spiegazioni, candidature, messaggi, meeting ed esiti | Incontro gestito dentro l'applicazione | Le due parti vedono cronologia e condizioni della versione corretta |
+| 8. Ricerca e selezione | Implementare chatbot informale, richiesta strutturata, filtri reciproci e manuali, spiegazioni, candidature, messaggi, meeting ed esiti | Ricerca conversazionale e incontro gestiti dentro l'applicazione | Filtri coerenti con la richiesta, modificabili e sincronizzati; le due parti vedono cronologia e condizioni della versione corretta |
 | 9. Salari, gap e formazione | Integrare fonti curate, confronto competenze e catalogo | Benchmark orientativo e percorso di sviluppo | Nessun salario/corso inventato; dati insufficienti e gap restano distinti |
-| 10. Rapporto e feedback | Confermare ingresso, gestire scadenze, questionario e valutazioni | Tre strumenti separati con permessi e trigger corretti | Nessun feedback sbloccato prima dei requisiti temporali scelti; nessun dato individuale dei like esposto |
+| 10. Rapporto e feedback | Confermare ingresso, gestire scadenze, questionario di selezione a 10 domande e valutazione professionale a 5 voci | Tre strumenti separati con permessi e trigger corretti | Moduli compatti senza domande obbligatorie aggiuntive; tempi corretti e nessun dato individuale dei like esposto |
 | 11. Cuore | Calcolare aggregati coerenti, stati di copertura e visualizzazione | Cuore interattivo con spiegazione | Organico/like hanno perimetro coerente; dati assenti non diventano giudizio negativo |
 | 12. Verifica integrata | Controllare funzioni, accessi, AI, date, formule e accessibilità | Demo affidabile con problemi significativi risolti | Percorsi e casi limite documentati superano le verifiche pertinenti |
 | 13. Pitch | Preparare una storia dimostrativa di almeno cinque minuti | Pitch con problema, destinatari, soluzione, demo, benefici e sviluppi | Ogni beneficio presentato è mostrato o dichiarato come ipotesi da validare |
@@ -30,19 +30,21 @@ Si può costruire una demo completa senza fingere che fonti, verifiche o anonima
 
 Le fasi 0–2 precedono la progettazione dettagliata. La fase 5 precede la raccolta di dati reali. Le funzioni dei feedback dipendono dagli stati della candidatura e del rapporto; il cuore dipende anche dalla verifica dell'organico e dalla politica di anonimato.
 
+L'uso della chiave API è rinviato come richiesto. Nella fase tecnica dedicata si verificheranno modello Gemini Pro disponibile all'account, quote, condizioni di gratuità/costi, dati inviati e gestione degli errori. Questa revisione documentale non configura credenziali né effettua chiamate AI; il prototipo può dichiarare una simulazione prima dell'integrazione.
+
 ## 3. Contenuto minimo del prototipo completo
 
 ### Interfaccia candidato
 
 1. Racconto di partenza e domande AI.
 2. CV modificabile con conferma e provenienza delle capacità.
-3. Preferenze e ricerca offerte.
+3. Preferenze e ricerca offerte tramite chatbot informale e filtri manuali sincronizzati.
 4. Dettaglio con condizioni, retribuzione, crescita, benchmark e profilo aziendale.
 5. Gap per competenza e risorse formative.
 6. Candidatura, messaggi, colloqui e stato.
-7. Questionario sulla selezione.
+7. Questionario sulla selezione con 10 domande, incluso spazio libero nella domanda sui miglioramenti.
 8. Rapporto confermato, confronto con le condizioni salvate e apprezzamento dopo sei mesi.
-9. Valutazione professionale ricevuta e possibilità di replica.
+9. Valutazione professionale ricevuta su 5 voci e possibilità di replica.
 
 ### Interfaccia azienda
 
@@ -53,7 +55,7 @@ Le fasi 0–2 precedono la progettazione dettagliata. La fase 5 precede la racco
 5. Ingresso e rapporto lavorativo.
 6. Risultati di selezione e miglioramenti.
 7. Cuore aggregato e relativa metodologia.
-8. Valutazione del dipendente e formazione pertinente.
+8. Valutazione del dipendente su 5 voci nelle quattro aree e formazione pertinente.
 
 Per mantenere la demo gestibile si parte da pochi ruoli, senza eliminare moduli dal percorso. Login, invii, verifica dei rapporti e fonti possono essere simulati quando dichiarato e isolato; il comportamento centrale deve essere dimostrabile. La tecnologia AI usata in demo, se simulata, è etichettata; non si presenta un testo statico come risposta generata realmente.
 
@@ -62,6 +64,9 @@ Per mantenere la demo gestibile si parte da pochi ruoli, senza eliminare moduli 
 | Scenario | Funzione dimostrata |
 |---|---|
 | Persona con racconto informale di lavoro ed esperienza di vita | L'AI struttura il CV e chiede conferme senza inventare titoli |
+| Persona che descrive informalmente azienda e lavoro desiderati | Il chatbot formula la richiesta e applica filtri visibili sul catalogo |
+| Ricerca con preferenze, alternative o salario ambiguo | Distinzione fra vincoli e preferenze, operatori corretti e chiarimenti mirati |
+| Ricerca senza risultati o con servizio AI indisponibile | Nessun vincolo allentato di nascosto; filtri manuali e ultima ricerca valida disponibili |
 | Persona con formazione e competenze documentate | L'impresa legge evidenze pertinenti e livelli |
 | Persona con competenze trasferibili | Il confronto evidenzia capacità e aspetti da approfondire |
 | Persona con capacità adeguate ma orari incompatibili | La tutela delle condizioni rimane visibile |
@@ -95,6 +100,15 @@ I numeri degli scenari sono sintetici; non sono statistiche sul mercato o recens
 - Indisponibilità del servizio AI lascia modificabili contenuti e bozze, con errore comprensibile.
 - Un requisito non documentato resta distinto da una competenza sicuramente mancante.
 
+### Ricerca conversazionale
+
+- La richiesta informale produce criteri ammessi coerenti con il testo, con distinzione tra vincoli e preferenze.
+- Le alternative AND/OR e le unità economiche sono rispettate; le ambiguità significative producono chiarimenti.
+- Chat e filtri manuali rimangono sincronizzati; il modello non esegue query arbitrarie.
+- Nessun risultato o dato mancante porta a inventare offerte, condizioni o corrispondenze.
+- L'assistente non allenta vincoli essenziali autonomamente e non modifica CV o preferenze salvate senza scelta della persona.
+- In caso di indisponibilità AI resta disponibile la ricerca manuale; nessuna candidatura o comunicazione aziendale parte dalla sola ricerca.
+
 ### Salario, crescita e formazione
 
 - Le unità economiche sono confrontabili: lordo/netto, ore e mensilità non vengono mescolati.
@@ -108,6 +122,8 @@ I numeri degli scenari sono sintetici; non sono statistiche sul mercato o recens
 - I sei mesi del rapporto partono dall'ingresso, non dalla candidatura.
 - Solleciti ripetuti e riaperture non duplicano risposte o like.
 - Le domande non applicabili non abbassano medie e non obbligano risposte inventate.
+- Il questionario di selezione contiene esattamente 10 domande al massimo, con contesto precompilato e spazio libero integrato; la valutazione professionale ha 5 voci su 4 aree.
+- La versione dei questionari impedisce di fondere automaticamente aggregati delle vecchie domande con quelle nuove.
 - L'azienda non riceve identità o azioni individuali dei like nemmeno attraverso API, esportazioni o variazioni in tempo reale.
 - La persona può leggere e contestualizzare la propria valutazione professionale secondo i permessi definiti.
 
@@ -136,6 +152,7 @@ Non sono risultati già ottenuti:
 - tempi e chiarezza della comunicazione;
 - ragioni dichiarate di rinuncia, raccolte in modo proporzionato;
 - comprensione del benchmark e dei suoi limiti;
+- coerenza dei filtri formulati dal chatbot e facilità di correggere la ricerca;
 - utilizzo di risorse formative pertinenti e successiva conferma di competenze;
 - copertura dei feedback e del cuore, senza trasformare mancata partecipazione in insoddisfazione;
 - capacità del lavoratore di riconoscere differenze tra promesse e condizioni successive.
@@ -152,11 +169,11 @@ Il cuore a like unico non misura separatamente tutti gli aspetti del rispetto de
 | R04–R05 | Specifica §5; modello §5 | 6 | Racconto → chiarimenti → CV approvato |
 | R06 | Specifica §6.3 | 7 | Tappe, cifre, benefit e condizioni |
 | R07 | Specifica §7 | 8 | Filtri su entrambi i lati e spiegazioni |
-| R08–R09 | Questionari §3 | 10 | 21 domande contestuali/valutative e spazi liberi |
+| R08–R09 | Questionari §3 | 10 | 10 domande complessive, contesto precompilato e spazio libero integrato in S10 |
 | R10 | Questionari §2 | 1, 10 | Trigger e calendario corretti, scelta temporale tracciata |
 | R11 | Questionari §4.1–4.2 | 10 | Like anonimo eleggibile, nessun dislike |
 | R12 | Questionari §4.3–4.6 | 11 | Formula, organico pubblico e cuore accessibile |
-| R13–R14 | Questionari §5 | 10 | Quattro aree e adattamento approfondito |
+| R13–R14 | Questionari §5 | 10 | 5 voci su 4 aree, con due voci sull'adattamento |
 | R15–R16 | Specifica §8 | 9 | Stima documentata, nessun filtro automatico di mercato |
 | R17–R18 | Specifica §6.4 e §9; modello §6 | 7, 9 | Requisiti confermati, gap e copertura |
 | R19–R20 | Specifica §9 e §11 | 9 | Formazione verificata e differenze visibili alla persona |
@@ -164,6 +181,8 @@ Il cuore a like unico non misura separatamente tutti gli aspetti del rispetto de
 | R22 | Specifica §2/§7; modello §4/§8 | Tutte | Controllo umano, privacy e nessuna esclusione automatica AI |
 | R23 | Specifica §7; modello §2–3 | 5, 7–8, 10 | Promesse iniziali ancora ricostruibili |
 | R24 | Specifica §5/§8/§9; questionari §4 | Tutte | Etichette corrette per dati ed evidenze |
+| R25 | Specifica §5.5/§7; ricerca conversazionale §2–§6; modello §3/§5 | 3–5, 8, 12 | Richiesta informale → criteri validati → filtri visibili → risultati modificabili |
+| R26 | Specifica §12.1; ricerca conversazionale §7; registro P20 | 5, successiva integrazione AI | Valutazione Gemini Pro e configurazione API documentate nella fase dedicata, senza chiavi nel repository |
 
 ## 8. Prima attività dopo la revisione di questa pipeline
 

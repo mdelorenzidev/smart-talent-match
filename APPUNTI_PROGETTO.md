@@ -4,6 +4,8 @@ Aggiornamento: 23 ottobre 2026.
 
 > Nota di aggiornamento: la successiva descrizione completa dell'utente ha reintrodotto e precisato i feedback. Il tema non è più sospeso. La base corrente è [README_PROGETTO.md](README_PROGETTO.md) con specifica, questionari, modello dei dati, pipeline e registro decisioni. Le sezioni seguenti conservano lo storico della discussione e non prevalgono sulla specifica corrente.
 
+> Revisione 1.1: selezione a 10 domande, valutazione professionale a 5 voci e introduzione della [ricerca conversazionale AI](RICERCA_CONVERSAZIONALE_AI.md). L'uso della chiave API e la valutazione di Gemini Pro sono rinviati come richiesto.
+
 ## Obiettivo e priorità condivise
 
 - Facilitare l'incontro tra PMI campane e lavoratori, mantenendo come priorità la tutela del lavoratore.

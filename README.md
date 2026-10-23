@@ -9,6 +9,7 @@ Il repository contiene la definizione del prodotto e la pipeline per la successi
 - [Guida alla documentazione e stato delle decisioni](README_PROGETTO.md)
 - [Specifica del prodotto](SPECIFICA_PRODOTTO.md)
 - [Questionari, valutazioni e cuore aziendale](QUESTIONARI_E_RATING.md)
+- [Chatbot e ricerca conversazionale AI](RICERCA_CONVERSAZIONALE_AI.md)
 - [Modello dei dati e flussi](MODELLO_DATI_E_FLUSSI.md)
 - [Pipeline di realizzazione](PIPELINE_REALIZZAZIONE.md)
 - [Decisioni e fonti](DECISIONI_E_FONTI.md)
@@ -19,7 +20,11 @@ Il repository contiene la definizione del prodotto e la pipeline per la successi
 - Condizioni economiche, organizzazione del lavoro e prospettive di crescita comprensibili.
 - CV costruito con assistenza AI e confermato dalla persona.
 - Ricerca reciproca tra candidati e aziende secondo competenze e condizioni.
+- Chatbot informale che formula la richiesta e applica filtri visibili e modificabili.
 - Feedback sulla selezione distinto dagli apprezzamenti anonimi dopo l'inserimento.
+- Moduli compatti: 10 domande sulla selezione e 5 voci nella valutazione professionale.
 - Raccomandazioni comprensibili e nessuna esclusione automatica decisa dall'AI.
 
 Le proposte ancora da confermare sono indicate nei documenti; non sono presentate come decisioni definitive.
+
+L'integrazione API AI verrà definita successivamente, valutando Gemini Pro e la chiave disponibile all'utente. Nessuna chiave o integrazione attiva è inclusa nel repository.

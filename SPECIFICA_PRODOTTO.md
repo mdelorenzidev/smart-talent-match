@@ -1,10 +1,10 @@
 # Specifica del prodotto
 
-Versione 1.0 — 23 ottobre 2026. Fonte: ultima descrizione dell'utente, letta nel contesto del brief FAN Innovation.
+Versione 1.1 — 23 ottobre 2026. Fonte: descrizione dell'utente e successiva revisione su questionari e ricerca conversazionale AI, nel contesto del brief FAN Innovation.
 
 ## 1. Obiettivo
 
-Realizzare una webapp con interfaccia candidato/lavoratore e interfaccia azienda. L'applicazione facilita un incontro informato tra persone e PMI campane attraverso offerte trasparenti, CV completi costruiti con assistenza AI, ricerca reciproca per parametri, opportunità di crescita dichiarate e feedback distinti sulla selezione e sull'esperienza professionale.
+Realizzare una webapp con interfaccia candidato/lavoratore e interfaccia azienda. L'applicazione facilita un incontro informato tra persone e PMI campane attraverso offerte trasparenti, CV completi costruiti con assistenza AI, ricerca reciproca per parametri, chatbot che traduce il racconto informale delle preferenze in filtri, opportunità di crescita dichiarate e feedback distinti sulla selezione e sull'esperienza professionale.
 
 La tutela del lavoratore resta il criterio prioritario. Il valore per l'impresa è trovare persone pertinenti con capacità comprensibili e supportate da evidenze, riducendo ambiguità sulle condizioni e sulle aspettative.
 
@@ -45,12 +45,12 @@ Questo permette di gestire candidature non riuscite, più candidati per offerta,
 | R06 | Percorso di crescita con ruoli successivi, cifre e benefit | Utente |
 | R07 | Ricerca reciproca secondo parametri espliciti | Utente |
 | R08 | Feedback sulla comunicazione e sui meeting della selezione | Utente |
-| R09 | Questionario di selezione prevalentemente chiuso, con spazio libero e miglioramenti | Utente |
+| R09 | Questionario di selezione ridotto a 10 domande, prevalentemente chiuso, con spazio libero integrato e miglioramenti | Utente |
 | R10 | Finestra temporale di sei mesi da definire correttamente per i feedback | Utente + proposta sui trigger |
 | R11 | Apprezzamento anonimo post-assunzione dopo sei mesi, tramite like senza dislike | Utente |
 | R12 | Cuore interattivo proporzionale a like e numero pubblico dei dipendenti | Utente |
 | R13 | Valutazione aziendale del dipendente dopo lo stesso periodo | Utente |
-| R14 | Valutazione di puntualità, dettaglio, teamwork e soprattutto adattamento | Utente |
+| R14 | Valutazione sintetica di puntualità, dettaglio, teamwork e soprattutto adattamento, articolata in 5 voci | Utente; numero delle voci scelto operativamente |
 | R15 | Stima salariale orientativa per ogni posizione, visibile alla persona | Utente |
 | R16 | Stima salariale informativa, non criterio automatico di esclusione | Utente |
 | R17 | Analisi AI delle competenze mancanti rispetto alle posizioni di interesse | Utente |
@@ -61,6 +61,8 @@ Questo permette di gestire candidature non riuscite, più candidati per offerta,
 | R22 | Tutela del lavoratore, raccomandazioni comprensibili e nessuna esclusione automatica AI | Brief + conversazione |
 | R23 | Conservare le promesse dell'offerta per confrontarle con l'esperienza successiva | Conseguenza necessaria di R03/R06/R11 |
 | R24 | Distinguere dati dichiarati, verificati, stimati e insufficienti | Conseguenza operativa della trasparenza |
+| R25 | Chatbot informale che formula la richiesta di ricerca e applica filtri espliciti alle offerte/aziende, modificabili dalla persona | Utente |
+| R26 | Definire successivamente integrazione API e modello AI, valutando Gemini Pro e la chiave disponibile all'utente | Utente |
 
 ## 5. Percorso del candidato e costruzione del CV
 
@@ -92,6 +94,16 @@ Le preferenze di ricerca — retribuzione desiderata, sede, turni e modalità �
 ### 5.4 Preferenze di ricerca
 
 Il candidato indica ruoli, competenze che desidera utilizzare o sviluppare, area e distanza accettabile, modalità in presenza/ibrida/remota, turni e ore, disponibilità di inizio, tipo di contratto, fascia retributiva e prospettive di crescita desiderate. Distingue preferenze flessibili e condizioni essenziali, modificabili in ogni momento.
+
+### 5.5 Chatbot per descrivere l'azienda e il lavoro cercati
+
+La persona può dialogare in modo informale con un chatbot distinto, per scopo, dalla costruzione del CV. Descrive l'azienda desiderata e le condizioni del lavoro; l'AI formula la richiesta in criteri strutturati e filtra la ricerca. La conversazione può raffinare una ricerca già avviata senza obbligare a compilare tutti i filtri a mano.
+
+Si possono esprimere settore, dimensione aziendale, territorio, modalità, ruolo, contratto, compenso, turni, benefit e opportunità di crescita, limitatamente ai dati disponibili nel catalogo. Le richieste comprensibili vengono applicate direttamente come filtri visibili e correggibili; si chiedono chiarimenti mirati quando un'ambiguità cambia il risultato, per esempio su lordo/netto o modalità alternative.
+
+I requisiti essenziali sono distinti dalle preferenze. Il chatbot non inventa dati aziendali, non deduce vincoli da informazioni private e non trasforma una preferenza in un'esclusione rigida. In assenza di risultati propone quali criteri rivedere, senza allentarli di nascosto. Il CV e il profilo persistente non sono modificati automaticamente dalla conversazione di ricerca.
+
+La specifica completa del percorso, dei limiti e dei criteri di verifica è in [Ricerca conversazionale AI](RICERCA_CONVERSAZIONALE_AI.md).
 
 ## 6. Percorso dell'azienda e offerta trasparente
 
@@ -133,7 +145,7 @@ Lato candidato, i filtri operano sulle condizioni e sulle caratteristiche dell'o
 
 Le due direzioni producono spiegazioni: elementi corrispondenti, differenze, informazioni da chiarire. La mancanza di un dato non è trasformata automaticamente in una carenza.
 
-I filtri selezionati esplicitamente dalla persona sono visibili, modificabili e rimovibili. Un filtro scelto dall'utente non equivale a una decisione di esclusione dell'AI. Le raccomandazioni AI non rifiutano candidature, non cancellano opportunità e non decidono assunzioni. Una disponibilità o una condizione incompatibile viene mostrata e può essere approfondita dalle parti.
+I filtri selezionati esplicitamente dalla persona, anche espressi in linguaggio naturale al chatbot, sono visibili, modificabili e rimovibili. Il chatbot traduce l'intenzione espressa; il motore di ricerca esegue solo criteri validati. Un filtro scelto dall'utente non equivale a una decisione di esclusione dell'AI. Le raccomandazioni AI non rifiutano candidature, non cancellano opportunità e non decidono assunzioni. Una disponibilità o una condizione incompatibile viene mostrata e può essere approfondita dalle parti.
 
 La candidatura conserva la versione del CV condivisa e dell'offerta accettata come base del processo. Messaggi, appuntamenti, esiti e cambiamenti rilevanti hanno una cronologia accessibile alle parti. Un'offerta modificata non riscrive le promesse precedenti; le variazioni vengono evidenziate prima dell'accettazione.
 
@@ -178,7 +190,7 @@ Tre strumenti indipendenti:
 - like anonimo al datore di lavoro dopo sei mesi di rapporto, rappresentato dal cuore;
 - valutazione professionale aziendale del dipendente dopo sei mesi di rapporto.
 
-Tempi, domande, denominatori, anonimato e visibilità sono definiti nel documento dedicato. Nessun punteggio del lavoratore alimenta il cuore aziendale; il questionario di selezione non si confonde con i like post-assunzione.
+Il questionario di selezione contiene 10 domande complessive, incluso il miglioramento con spazio libero integrato. La valutazione professionale contiene 5 voci su 4 aree, con due voci sull'adattamento. Tempi, domande, denominatori, anonimato e visibilità sono definiti nel documento dedicato. Nessun punteggio del lavoratore alimenta il cuore aziendale; il questionario di selezione non si confonde con i like post-assunzione.
 
 ## 11. Interfacce da progettare
 
@@ -187,7 +199,7 @@ Tempi, domande, denominatori, anonimato e visibilità sono definiti nel document
 - accesso e impostazioni di condivisione;
 - racconto iniziale e conversazione AI;
 - editor/anteprima del CV e raccolta delle evidenze;
-- preferenze e ricerca offerte;
+- preferenze e ricerca offerte, con chatbot informale, riepilogo della richiesta e filtri modificabili;
 - dettaglio offerta: condizioni, crescita, benchmark, profilo aziendale e cuore;
 - confronto delle competenze e formazione;
 - candidatura, messaggi, colloqui e stato;
@@ -219,3 +231,9 @@ Il prototipo dimostra un percorso completo con dati sintetici e ruoli distinti. 
 Integrazioni contrattuali, verifica reale dell'organico, anonimizzazione in produzione, invio di notifiche, raccolta sistematica di dati salariali e formazione aggiornata richiedono implementazioni e verifiche prima del rilascio con dati reali.
 
 La selezione della tecnologia e il design definitivo avvengono dopo il consolidamento delle regole. Questa specifica non autorizza da sola la pubblicazione online né introduce credenziali, servizi o fornitori non scelti.
+
+### 12.1 Integrazione API AI rinviata
+
+L'utente propone di valutare Gemini Pro e segnala di avere una chiave API gratuita. Questa revisione registra la preferenza, senza selezionare un identificativo di modello né configurare o usare una chiave. Disponibilità del modello, accessi, condizioni di utilizzo, eventuale gratuità, quote e costi saranno verificati nella fase dedicata, come richiesto dall'utente.
+
+Il progetto deve poter distinguere il comportamento funzionale dell'assistente dal fornitore AI. La futura chiave sarà gestita sul server tramite configurazione riservata, non nei file del repository o nel browser. Per questa modifica documentale non servono credenziali né chiamate reali a servizi AI.

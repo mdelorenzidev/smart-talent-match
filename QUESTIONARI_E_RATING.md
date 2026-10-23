@@ -1,6 +1,6 @@
 # Questionari e rating
 
-Versione 1.0 — 23 ottobre 2026.
+Versione 1.1 — 23 ottobre 2026. Revisione: selezione ridotta a 10 domande e valutazione professionale a 5 voci.
 
 ## 1. Tre strumenti da mantenere distinti
 
@@ -43,11 +43,11 @@ Stessa maturazione: sei mesi dalla data di inizio del medesimo rapporto. I due r
 - Le nuove valutazioni periodiche oltre il primo semestre sono un'evoluzione proposta, non una funzione già decisa.
 - In demo un comando esplicito simula il passaggio del tempo; non si simulano sei mesi reali senza dichiararlo.
 
-## 3. Questionario completo sulla selezione
+## 3. Questionario sulla selezione — 10 domande
 
 ### 3.1 Regole di compilazione
 
-Il questionario richiesto è prevalentemente chiuso. Ogni risposta valutativa consente «Non applicabile / Non posso valutarlo». Le domande sui colloqui si mostrano solo a chi dichiara di averne svolti. I campi liberi sono facoltativi, con indicazione di non inserire nomi o dati privati di terzi.
+Il questionario contiene al massimo 10 domande: 9 valutative e una sui miglioramenti. Ogni risposta valutativa consente «Non applicabile / Non posso valutarlo». Le domande sui colloqui e sulle prove si mostrano solo quando pertinenti alla fase raggiunta. Lo spazio libero è facoltativo e integrato nella decima domanda, senza aggiungere altre domande; permette anche di spiegare una risposta precedente. Si invita a non inserire nomi o dati privati di terzi.
 
 La scala standard, dove indicata, è:
 
@@ -59,51 +59,39 @@ La scala standard, dove indicata, è:
 
 Le domande descrivono esperienze senza presumere che vi sia stata una violazione o un disservizio.
 
-### 3.2 Contesto, senza punteggio
+### 3.2 Contesto ricavato dalla candidatura
 
-| ID | Domanda | Risposte |
-|---|---|---|
-| S01 | A quale fase sei arrivato? | Candidatura inviata / Primo contatto / Uno o più colloqui / Proposta ricevuta / Ingresso in azienda |
-| S02 | Qual è lo stato della tua candidatura? | In corso / Assunto / Non selezionato / Ritirata da me / Offerta ritirata o annullata / Esito non comunicato |
-| S03 | Hai sostenuto un colloquio o una prova? | Nessuno / Un colloquio / Più colloqui / Prova senza colloquio / Colloqui e prova |
+Fase raggiunta, stato della candidatura e presenza di colloqui/prove provengono dalla cronologia e sono mostrati come riepilogo correggibile, senza tre ulteriori domande preliminari. Un meeting esterno può non essere registrato: la persona può correggere il contesto. Le incongruenze richiedono chiarimenti e non invalidano automaticamente il feedback.
 
-Le risposte sono confrontate con la cronologia della piattaforma per individuare incongruenze da chiarire, senza correggere automaticamente il racconto dell'utente. Un meeting esterno può non risultare nella cronologia.
-
-### 3.3 Valutazione, con scala standard e non applicabile
+### 3.3 Nove domande valutative, con scala standard e non applicabile
 
 | ID | Area | Domanda |
 |---|---|---|
-| S04 | Chiarezza iniziale | L'offerta descriveva chiaramente le attività e le responsabilità effettive? |
-| S05 | Chiarezza iniziale | Il compenso e le sue componenti erano comprensibili prima dei colloqui? |
-| S06 | Chiarezza iniziale | Contratto, sede, modalità e turni erano descritti in modo sufficiente per decidere se candidarti? |
-| S07 | Comunicazione | Hai ricevuto conferma della presa in carico della candidatura? |
-| S08 | Comunicazione | Hai ricevuto aggiornamenti sufficienti per capire come procedeva la selezione? |
-| S09 | Comunicazione | Le risposte dell'azienda sono arrivate nei tempi che aveva indicato? |
-| S10 | Colloqui e prove | Appuntamenti e relativi cambiamenti sono stati gestiti con puntualità e preavviso adeguati? |
-| S11 | Colloqui e prove | Durante gli incontri hai ricevuto un trattamento rispettoso? |
-| S12 | Colloqui e prove | Domande ed eventuali prove erano pertinenti al lavoro proposto? |
-| S13 | Colloqui e prove | Il tempo e l'impegno richiesti per colloqui e prove erano proporzionati alla selezione? |
-| S14 | Coerenza delle condizioni | Quanto emerso durante la selezione corrispondeva alle condizioni presentate inizialmente? |
-| S15 | Coerenza delle condizioni | Eventuali variazioni sono state spiegate chiaramente prima di chiederti una decisione? |
-| S16 | Crescita | L'azienda ha chiarito quali opportunità di crescita esistono e a quali condizioni? |
-| S17 | Esito | Hai ricevuto una comunicazione chiara della conclusione della selezione? |
-| S18 | Esito | L'esito o il riscontro ricevuto ti ha aiutato a capire la decisione e gli eventuali aspetti da migliorare? |
+| S01 | Chiarezza iniziale | Quanto erano chiare le informazioni iniziali su mansioni, compenso, contratto e organizzazione del lavoro? |
+| S02 | Comunicazione | Quanto la comunicazione dalla presa in carico in poi è stata chiara e tempestiva, con aggiornamenti sufficienti? |
+| S03 | Organizzazione degli incontri | Quanto appuntamenti, puntualità ed eventuali cambiamenti sono stati gestiti con un preavviso adeguato? |
+| S04 | Rispetto | Quanto ti sei sentito trattato con rispetto durante contatti e incontri? |
+| S05 | Colloqui e prove | Quanto domande, prove ed impegno richiesto erano pertinenti e proporzionati al lavoro proposto? |
+| S06 | Coerenza delle condizioni | Quanto le condizioni discusse sono rimaste coerenti con l'offerta, rendendo comprensibili le eventuali variazioni prima della tua decisione? |
+| S07 | Crescita | Quanto erano chiare le opportunità di crescita, i relativi compensi/benefit e le condizioni per accedervi? |
+| S08 | Esito | Quanto la conclusione della selezione ti è stata comunicata in modo chiaro e tempestivo? |
+| S09 | Riscontro utile | Quanto il riscontro ricevuto ti ha aiutato a comprendere l'esito e gli eventuali aspetti da migliorare? |
 
-Eccezione alla scala standard: S07 usa Sì / No / Non ricordo e resta fuori dal punteggio numerico. «Non ricordo» non viene convertito in una risposta negativa. S09 è non applicabile se non erano stati comunicati tempi; S15 se non vi sono state variazioni; S17–S18 sono non applicabili ai processi ancora aperti.
+S03 e S05 sono non applicabili se non vi sono stati incontri o prove; S06 se non si è arrivati al confronto delle condizioni. S08–S09 sono non applicabili ai processi ancora aperti; S09 anche quando manca un riscontro valutabile. L'assenza di esito in un processo concluso può essere valutata in S08. Non si richiede di inventare informazioni per completare il modulo.
 
-### 3.4 Miglioramenti, chiusi e aperti
+Le domande accorpano aspetti della stessa area per ridurre l'impegno; la risposta esprime una valutazione complessiva dell'area. Non è corretto ricavare da S01, per esempio, tre punteggi distinti su stipendio, turni e mansioni. S10 permette di precisare quale aspetto migliorare.
+
+### 3.4 Decima domanda: miglioramenti e spazio libero
 
 | ID | Domanda | Risposte |
 |---|---|---|
-| S19 | Quali aspetti dovrebbe migliorare l'azienda? | Scelta multipla: chiarezza delle mansioni / retribuzione / contratto e turni / tempi di risposta / aggiornamenti / organizzazione degli incontri / rispetto durante gli incontri / proporzione delle prove / chiarezza della crescita / comunicazione dell'esito / nessuno in particolare / altro |
-| S20 | Vuoi descrivere un episodio o spiegare una risposta? | Testo libero facoltativo |
-| S21 | Quale cambiamento concreto suggeriresti all'azienda? | Testo libero facoltativo; visibile anche quando non si seleziona «altro» |
+| S10 | Quali aspetti dovrebbe migliorare l'azienda? | Scelta multipla: chiarezza delle mansioni / retribuzione / contratto e turni / tempi di risposta / aggiornamenti / organizzazione degli incontri / rispetto / pertinenza e proporzione delle prove / crescita e benefit / coerenza delle condizioni / comunicazione dell'esito / utilità del riscontro / nessuno in particolare / altro. Campo integrato facoltativo: «Dettagli, episodi o suggerimenti», disponibile per qualsiasi scelta. |
 
-«Nessuno in particolare» è incompatibile con altre scelte della stessa domanda. I campi liberi non modificano automaticamente i punteggi. L'AI può proporre un riassunto delle ricorrenze, riferito al numero effettivo di risposte, senza trasformare opinioni in fatti accertati.
+«Nessuno in particolare» è incompatibile con altre scelte della stessa domanda. Lo spazio libero non modifica automaticamente i punteggi e non diventa obbligatorio selezionando «altro». L'AI può proporre un riassunto delle ricorrenze, riferito al numero effettivo di risposte, senza trasformare opinioni in fatti accertati.
 
 ### 3.5 Calcolo e presentazione
 
-Proposta: mostrare medie per area e numero di risposte valide per ogni domanda, senza voto complessivo al lancio. Le risposte non applicabili non entrano nel denominatore. Non si confrontano candidati arrivati al colloquio con persone che hanno soltanto inviato la candidatura senza distinguere la fase.
+Proposta: mostrare la distribuzione e la media delle risposte valide di ciascuna area S01–S09, senza voto complessivo al lancio. S10 raccoglie frequenze dei miglioramenti e non entra nelle medie. Le risposte non applicabili non entrano nel denominatore. Non si confrontano candidati arrivati al colloquio con persone che hanno soltanto inviato la candidatura senza distinguere la fase. La versione 1.1 del questionario distingue queste 10 domande dalle 21 della versione iniziale; i risultati storici non vengono fusi automaticamente.
 
 Accanto ai risultati aggregati: periodo, candidati unici, persone che hanno risposto, distribuzione delle fasi e selezioni ancora aperte. Il rapporto tra risposte e candidati indica partecipazione al feedback, non soddisfazione. I nomi dei candidati non devono essere pubblicati con le statistiche.
 
@@ -199,27 +187,21 @@ Scala proposta, riferita agli obiettivi concordati e alle occasioni effettivamen
 
 Sempre disponibile «Non osservabile / Opportunità insufficienti». Non equivale a un voto basso. Nessuna inferenza automatica di personalità o adattabilità dal CV, dal volto, dalla voce o dalle esperienze private.
 
-### 5.3 Domande
+### 5.3 Cinque voci sulle quattro aree
 
 | ID | Area | Affermazione da valutare |
 |---|---|---|
-| D01 | Puntualità | Rispetta gli orari e gli impegni professionali concordati, nel contesto delle condizioni del ruolo. |
-| D02 | Puntualità | Segnala tempestivamente impedimenti o ritardi sulle scadenze, quando è in condizione di farlo. |
-| D03 | Cura del dettaglio | Controlla accuratezza e completezza del lavoro secondo gli standard comunicati. |
-| D04 | Cura del dettaglio | Riconosce e corregge errori, utilizzando il riscontro ricevuto. |
-| D05 | Teamworking | Condivide le informazioni necessarie e collabora al raggiungimento degli obiettivi del gruppo. |
-| D06 | Teamworking | Gestisce il confronto professionale con rispetto e contribuisce a risolvere difficoltà comuni. |
-| D07 | Adattamento e apprendimento | Apprende strumenti o procedure pertinenti introdotti nel lavoro, con il supporto disponibile. |
-| D08 | Adattamento e apprendimento | Applica nuove conoscenze a compiti concreti e ne verifica il risultato. |
-| D09 | Adattamento e apprendimento | Integra riscontri e aggiornamenti pertinenti nel proprio modo di lavorare. |
-| D10 | Adattamento e apprendimento | Affronta cambiamenti di priorità o metodo concordati, contribuendo a individuare soluzioni. |
-| D11 | Adattamento e apprendimento | Quando il ruolo lo prevede, riconosce evoluzioni del settore e propone aggiornamenti utili. |
+| D01 | Puntualità | Rispetta gli orari e gli impegni concordati e comunica per tempo gli impedimenti, nel contesto delle condizioni del ruolo. |
+| D02 | Cura del dettaglio | Produce un lavoro accurato e completo, correggendo gli errori sulla base dei riscontri ricevuti. |
+| D03 | Teamworking | Collabora con rispetto e condivide le informazioni necessarie agli obiettivi del gruppo. |
+| D04 | Adattamento e apprendimento | Apprende e applica nuovi strumenti, procedure o conoscenze pertinenti, con il supporto disponibile. |
+| D05 | Adattamento e apprendimento | Integra evoluzioni del settore e cambiamenti concordati nel lavoro, individuando soluzioni o miglioramenti quando il ruolo lo prevede. |
 
-Per le quattro aree si mostrano risultati separati e quantità di risposte osservabili. L'adattamento riceve più approfondimento e una sezione di sviluppo dedicata; non è necessario inventare un peso complessivo per dargli centralità. Se in futuro si desidera un punteggio unico, i pesi devono essere discussi e pubblicati, senza trasformarlo in un sistema automatico di esclusione.
+Le cinque voci sostituiscono le undici iniziali e mantengono le quattro aree: una voce per puntualità, dettaglio e teamwork; due per adattamento. Si mostrano risultati separati e quantità di risposte osservabili. Per l'adattamento la sintesi dell'area usa solo le risposte osservabili di D04–D05, mantenendo visibile anche il dettaglio. La maggiore attenzione all'adattamento non introduce un peso complessivo nascosto. Se in futuro si desidera un punteggio unico, i pesi devono essere discussi e pubblicati, senza trasformarlo in un sistema automatico di esclusione. Anche questa valutazione conserva la versione del questionario.
 
 ### 5.4 Contesto e sviluppo
 
-Campi aggiuntivi proposti: ruolo e periodo, obiettivi comunicati, cambiamenti effettivamente introdotti, formazione/supporto offerti, un esempio osservabile per area, azioni di sviluppo e data del prossimo confronto. I fatti non osservati non sono inventati per completare il modulo.
+Ruolo e periodo provengono dal rapporto e sono mostrati come contesto correggibile. Un unico spazio facoltativo permette di indicare esempi, obiettivi comunicati, supporto/formazione offerti e azioni di sviluppo, senza altri questionari obbligatori. I fatti non osservati non sono inventati per completare il modulo.
 
 L'adattabilità riguarda nuove conoscenze e metodi pertinenti al lavoro. Non misura disponibilità illimitata, accettazione di condizioni peggiori o rinuncia ai propri limiti. Assenze o condizioni tutelate non diventano automaticamente indizi di scarsa puntualità o collaborazione.
 

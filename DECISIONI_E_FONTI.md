@@ -1,10 +1,10 @@
 # Decisioni, ipotesi e fonti
 
-Versione 1.0 — 23 ottobre 2026.
+Versione 1.1 — 23 ottobre 2026. Revisione su moduli sintetici e ricerca conversazionale AI.
 
 ## 1. Gerarchia delle fonti del progetto
 
-1. Ultima descrizione dell'utente: definizione funzionale principale.
+1. Descrizione dell'utente e successiva richiesta di ridurre i questionari e introdurre il chatbot di ricerca: definizione funzionale corrente.
 2. Brief nelle due fotografie: destinatari, obiettivo territoriale, prototipo dimostrabile, pitch e limiti delle raccomandazioni AI.
 3. Conversazione precedente: motivazione, tutela del lavoratore e ipotesi sul peso delle condizioni offerte.
 4. Proposte operative dell'assistente: rendono implementabili i requisiti, ma devono restare riconoscibili come proposte.
@@ -27,6 +27,9 @@ Versione 1.0 — 23 ottobre 2026.
 - Seminari e materiali aiutano ad acquisire capacità mancanti.
 - Sono necessarie un'interfaccia candidato/lavoratore e un'interfaccia azienda.
 - Design e codice verranno dopo la pipeline.
+- Il questionario sulla selezione viene ridotto a 10 domande che coprono tutti i punti principali; anche le voci della valutazione aziendale vengono ridotte.
+- Un chatbot permette alla persona di descrivere informalmente l'azienda e il lavoro desiderati, formula la richiesta e filtra la ricerca.
+- La definizione dell'integrazione API è rinviata. L'utente indica Gemini Pro come opzione da valutare e riferisce di avere una chiave API gratuita; modello preciso, disponibilità, quote e condizioni economiche non sono ancora verificati.
 
 La richiesta precedente di sospendere i feedback è superata dall'ultima descrizione, che li reintroduce con un meccanismo preciso. I like sulle recensioni o le conferme «esperienza simile» discusse in precedenza non vengono aggiunti automaticamente al nuovo cuore: qui il like riguarda direttamente l'apprezzamento del datore di lavoro.
 
@@ -52,6 +55,9 @@ La richiesta precedente di sospendere i feedback è superata dall'ultima descriz
 | P16 | Accesso ai profili | CV condiviso per candidatura e ricerca aziendale solo secondo autorizzazioni | Granularità delle preferenze da definire in fase 3 |
 | P17 | Tecnologie | Stack deciso dopo flussi e design; regole indipendenti dal fornitore | Nessuna tecnologia o pubblicazione scelta in questa fase |
 | P18 | Perimetro iniziale | Pochi ruoli e dati sintetici per mostrare tutte le funzioni centrali | Aziende/ruoli dimostrativi da scegliere in fase 2 |
+| P19 | Questionari compatti | Selezione: 10 domande, con spazio libero integrato in S10; dipendente: 5 voci su 4 aree, due dedicate all'adattamento | Dieci domande e riduzione richieste dall'utente; scelta operativa delle cinque voci e formulazioni documentata nella versione 1.1 |
+| P20 | Modello e chiave AI | Valutare successivamente Gemini Pro e la chiave disponibile all'utente; configurazione server riservata | Rinvio esplicito dell'utente; nessuna chiave richiesta/configurata, nessuna gratuità illimitata presunta |
+| P21 | Ricerca conversazionale | Richiesta informale tradotta in filtri espliciti e correggibili; chiarimenti solo sulle ambiguità rilevanti | Funzione richiesta dall'utente; flusso operativo nel documento dedicato, senza modifica automatica del CV |
 
 ## 4. Compromessi da spiegare nel prodotto
 
@@ -98,6 +104,16 @@ Eurostat distingue unità e coperture delle statistiche retributive e descrive s
 
 Le statistiche sul reperimento non dimostrano da sole che la causa principale sia la retribuzione o la precarietà. Il progetto rende questi aspetti espliciti e permette di raccogliere riscontri, evitando di presentare un'ipotesi come un fatto già misurato.
 
-## 6. Disciplina delle modifiche future
+## 6. Storico delle revisioni
+
+### Versione 1.1 — 23 ottobre 2026
+
+- Ridotte le domande di selezione da 21 a 10, con contesto ricavato dalla candidatura e campo libero nella domanda sui miglioramenti.
+- Ridotte le voci professionali da 11 a 5, conservando puntualità, dettaglio, teamwork e priorità all'adattamento.
+- Introdotta la ricerca conversazionale AI con richiesta strutturata, filtri visibili e controllo della persona.
+- Aggiunti R25–R26 e aggiornati modello dei dati, interfacce, pipeline, verifiche e indice della documentazione.
+- Registrata la valutazione successiva di Gemini Pro, senza usare chiavi o selezionare un modello preciso.
+
+## 7. Disciplina delle modifiche future
 
 Per cambiare una regola centrale aggiornare: requisito interessato, decisione, dati coinvolti, interfacce e criterio di verifica. La pipeline e i documenti possono essere aggiornati, ma devono continuare a distinguere richieste approvate e proposte dell'assistente. Nessuna sfumatura viene eliminata per semplificare il codice senza renderlo esplicito.

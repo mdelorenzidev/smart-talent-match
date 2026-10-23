@@ -1,6 +1,6 @@
 # Modello dei dati e flussi
 
-Versione 1.0 — 23 ottobre 2026. Modello logico proposto per guidare l'implementazione futura; non impone ancora uno stack.
+Versione 1.1 — 23 ottobre 2026. Modello logico proposto per guidare l'implementazione futura; include la ricerca conversazionale e non impone ancora uno stack o un fornitore AI.
 
 ## 1. Relazioni fondamentali
 
@@ -9,6 +9,8 @@ erDiagram
     AZIENDA ||--o{ OFFERTA : pubblica
     OFFERTA ||--|{ VERSIONE_OFFERTA : conserva
     PERSONA ||--o{ VERSIONE_CV : approva
+    PERSONA ||--o{ SESSIONE_RICERCA : avvia
+    SESSIONE_RICERCA ||--o{ RICHIESTA_RICERCA : formula
     PERSONA ||--o{ CANDIDATURA : invia
     VERSIONE_OFFERTA ||--o{ CANDIDATURA : riceve
     VERSIONE_CV ||--o{ CANDIDATURA : accompagna
@@ -34,7 +36,9 @@ Per il prototipo ogni rapporto nasce da una candidatura. In futuro un rapporto n
 |---|---|
 | Account | Identità di accesso, ruoli e autorizzazioni; separati dal contenuto pubblico del profilo |
 | Persona | Profilo professionale, preferenze, impostazioni di visibilità; stato candidato/dipendente derivato dai rapporti |
-| Racconto e sessione AI | Input dell'utente, chiarimenti, estrazioni e conferme; accesso ristretto e conservazione da definire |
+| Racconto e sessione AI CV | Input dell'utente, chiarimenti, estrazioni e conferme per il CV; accesso ristretto e conservazione da definire |
+| Sessione di ricerca conversazionale | Dialogo e ricerca temporanea della persona, distinta dal CV; salvataggio e conservazione secondo scelta esplicita e politica definita |
+| Richiesta di ricerca | Sintesi, criteri validati, operatori AND/OR, unità, vincoli/preferenze, informazioni mancanti, provenienza e versione; sincronizzata con i filtri manuali |
 | Versione CV | Contenuto approvato, data, evidenze collegate, autorizzazioni e revisioni |
 | Competenza | Identificativo, descrizione, livello atteso/dichiarato, provenienza e stato dell'evidenza |
 | Evidenza | Documento/progetto/prova, autore e metodo della verifica; accesso minimo e nessuna verifica fittizia |
@@ -45,11 +49,11 @@ Per il prototipo ogni rapporto nasce da una candidatura. In futuro un rapporto n
 | Tappa di crescita | Ruolo, responsabilità, stipendio, benefit, requisiti e condizioni/tempi |
 | Candidatura | Persona, offerta/versione, CV/versione, stato e date; una candidatura attiva per persona/offerta nella proposta iniziale |
 | Evento selezione | Messaggio, invito, meeting, aggiornamento, proposta, esito; autore, data e collegamento |
-| Feedback selezione | Risposte, fase, eventuali testi, visibilità dichiarata e versione del questionario |
+| Feedback selezione | Dieci risposte S01–S10, contesto ricavato dalla candidatura, testo facoltativo integrato in S10, visibilità dichiarata e versione del questionario |
 | Rapporto lavorativo | Persona, azienda, data inizio/fine, verifica, versione delle condizioni accettate e variazioni |
 | Apprezzamento riservato | Unicità persona/azienda, rapporto qualificante, eleggibilità, attivo/ritirato; collegamenti accessibili solo al servizio autorizzato |
 | Aggregato cuore | L, N, E interni; valore pubblicabile, copertura pubblicabile, data, regola di aggregazione e stato privacy |
-| Valutazione professionale | Autore autorizzato, rapporto, periodo, punteggi, contesto, replica e revisioni |
+| Valutazione professionale | Autore autorizzato, rapporto, periodo, cinque voci D01–D05 su quattro aree, contesto, replica, versione del questionario e revisioni |
 | Fonte salariale | Provenienza, licenza/condizioni d'uso, territorio, ruolo/livello, periodo e unità |
 | Benchmark salariale | Dati di input, fascia, metodo/versione, copertura e fonti; stato disponibile/insufficiente |
 | Analisi gap | Versioni di CV e requisiti, esiti per competenza, dati mancanti, metodo e data |
@@ -67,6 +71,10 @@ Bozza → verifica di completezza → anteprima → pubblicata → sospesa/chius
 ### CV
 
 Racconto iniziale → estrazione AI → chiarimenti → bozza → revisione della persona → approvato → condiviso. Un errore AI riporta a chiarimenti o revisione. Nessuna bozza non approvata viene automaticamente distribuita alle aziende.
+
+### Ricerca conversazionale
+
+Messaggio informale → estrazione dei criteri → validazione → eventuale chiarimento → richiesta e filtri visibili → esecuzione sul catalogo → risultati → raffinamento tramite chat o controlli manuali. Solo le ambiguità che cambiano il significato richiedono chiarimenti; una richiesta chiara può essere eseguita direttamente. L'assenza di risultati non autorizza modifiche autonome dei vincoli. La ricerca viene salvata nelle preferenze persistenti solo su scelta della persona.
 
 ### Candidatura
 
@@ -87,6 +95,7 @@ La proposta iniziale misura sei mesi sullo stesso rapporto continuativo. Rinnovi
 | Informazione/azione | Persona interessata | Azienda pertinente | Pubblico |
 |---|---|---|---|
 | Racconto libero e bozza CV | Legge/modifica | Nessun accesso predefinito | Nessuno |
+| Conversazione e richiesta di ricerca | Proprie, modificabili; salva espressamente le preferenze | Nessun accesso predefinito | Nessuno |
 | CV approvato | Controlla la condivisione | Solo nel perimetro autorizzato | Solo eventuali parti rese pubbliche dalla persona |
 | Preferenze riservate | Legge/modifica | Solo informazioni professionali autorizzate necessarie all'incontro | Nessuno |
 | Offerta pubblicata e crescita | Legge | Gestisce con autorizzazione | Legge |
@@ -107,6 +116,7 @@ Le autorizzazioni sono applicate sul server e sul singolo oggetto, non soltanto 
 | Servizio | Input autorizzati | Output | Controllo |
 |---|---|---|---|
 | Costruzione CV | Racconto e chiarimenti della persona | Bozza strutturata, domande, evidenze collegate | Approvazione della persona |
+| Ricerca conversazionale | Messaggi della persona, filtri attivi e schema dei criteri consentiti | Richiesta strutturata, chiarimenti e spiegazione dei filtri | Validazione server, ricerca deterministica, filtri modificabili; nessuna candidatura automatica |
 | Definizione offerta | Bisogni e risposte dell'azienda | Bozza mansioni/requisiti/crescita | Approvazione dell'azienda |
 | Compatibilità | Versioni approvate di requisiti e profilo | Spiegazioni e aspetti da approfondire | Scelta umana, filtri visibili |
 | Benchmark salario | Dati salariali curati e parametri confrontabili | Intervallo/metodo/copertura e spiegazione | Fonte obbligatoria, nessun dato inventato |
@@ -116,6 +126,10 @@ Le autorizzazioni sono applicate sul server e sul singolo oggetto, non soltanto 
 Il cuore è calcolato da regole deterministiche sui dati autorizzati. Non serve un modello linguistico per riempirlo o attribuire like. La valutazione professionale è compilata dal referente umano, non dedotta dall'AI.
 
 I contenuti di CV, messaggi, documenti e offerte sono dati non attendibili come istruzioni: eventuali frasi che chiedono di cambiare regole o rivelare dati non devono essere eseguite dal modello. I servizi ricevono solo le informazioni necessarie e non possono interrogare liberamente dati di altre persone o aziende.
+
+La ricerca conversazionale restituisce criteri entro uno schema consentito; il modello non esegue query arbitrarie. Richieste e conversazioni di ricerca non aggiornano automaticamente CV o preferenze permanenti. Gli output dei questionari conservano la versione: non si mescolano automaticamente i precedenti 21/11 elementi con i nuovi 10/5.
+
+La configurazione del fornitore AI resta separata da questi servizi. Gemini Pro è l'opzione da valutare successivamente indicata dall'utente; modello preciso, accessi, quote, costi e uso della chiave saranno definiti in quella fase. La futura chiave sarà riservata al server e non presente nel repository o nel browser. Il flusso dettagliato è in [Ricerca conversazionale AI](RICERCA_CONVERSAZIONALE_AI.md).
 
 ## 6. Specifica proposta dell'indice gap
 
